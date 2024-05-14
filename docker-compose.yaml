@@ -1,0 +1,17 @@
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    container_name: db_elysia
+    environment:
+      MYSQL_DATABASE: 'db_elysia'
+      MYSQL_ROOT_PASSWORD: 'ket'
+      MYSQL_USER: 'ket'  # กำหนดผู้ใช้ใหม่ที่ต้องการสร้าง
+      MYSQL_PASSWORD: 'password'  # รหัสผ่านสำหรับผู้ใช้ใหม่
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data:/var/lib/mysql
+
+ 
