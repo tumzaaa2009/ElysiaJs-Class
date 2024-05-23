@@ -2,10 +2,14 @@
   "name": "project-elysia",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --hot src/index.ts"
+    "test": "tsc --noEmit test/**/*.ts",
+    "dev": "bun run --hot src/server.ts"
   },
   "dependencies": {
+    "@elysiajs/cookie": "^0.8.0",
+    "@elysiajs/html": "^1.0.2",
+    "@elysiajs/jwt": "^1.0.2",
+    "@elysiajs/swagger": "^1.0.5",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "elysia": "latest",

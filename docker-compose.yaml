@@ -13,5 +13,18 @@ services:
       - '3306:3306'
     volumes:
       - ./data:/var/lib/mysql
+  jenkinmaster:
+    image: jenkin-master
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile.jenkin
+    ports:
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins_home:/var/jenkins_home
 
+volumes:
+  jenkins_home:
  
