@@ -1,7 +1,9 @@
 import { Elysia, t } from "elysia";
 import { Route } from "../interfaces/router.interfaces";
 import * as resControl from "../controllers/index";
-
+interface RequestWithSayHello {
+  sayHello: (name: string) => string;
+}
 class IndexRoute implements Route {
   public path = "/";
   public router = new Elysia();
@@ -9,9 +11,9 @@ class IndexRoute implements Route {
     this.initializeRoutes();
   }
   private initializeRoutes() {
-    this.router.get("/decorate", ({ sayHello }) => {
-      return sayHello("tummmm");
-    });
+this.router.get("/decorate", (req: RequestWithSayHello) => {
+  return req.sayHello("tummmm");
+});
 
     this.router.get(`${this.path}JsonPlacHolder`, () =>
       resControl.JsonPlacHolder()
